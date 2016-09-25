@@ -22,8 +22,13 @@ RUN apk -U upgrade && \
     apk del go git musl-dev && \
     git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh && \
     cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc && \
-    sed -E -i -e 's/plugins\=.+/plugins=(colored-man-pages colorize cp docker docker-compose)/' /root/.zshrc && \
+    sed -E -i \
+      -e 's/plugins\=.+/plugins=(colored-man-pages colorize cp docker docker-compose)/' \
+      -e 's/ZSH_THEME\=.+/ZSH_THEME="timhaak"/' \
+      /root/.zshrc && \
     pip install docker-compose && \
     rm -rf /tmp/gotty /var/cache/apk/* /tmp/src
 
-CMD /usr/local/bin/gotty --port 8080 --permit-write --credential user:pass /bin/bash
+ADD ./files/timhaak.zsh-theme /root/.oh-my-zsh/themes/timhaak.zsh-theme
+
+CMD /usr/local/bin/gotty --port 8080 --permit-write --credential user:pass /bin/zsh
