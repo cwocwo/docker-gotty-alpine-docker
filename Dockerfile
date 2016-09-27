@@ -10,21 +10,21 @@ RUN apk -U upgrade && \
     apk --update add \
       bash \
       curl \
-      dnsutils docker  \
+      docker  \
       fping \
       go git \
       htop \
       iftop iotop \
       jq \
       man mc mtr musl-dev mysql-client \
-      nano netcat nmap \
+      nano nmap \
       postgresql-client python py2-pip \
       rsync \
       screen \
       wget \
-      tar telnet tmux tree \
+      tar heimdal-telnet tmux tree \
       vim \
-      xz-utils \
+      xz \
       zsh \
       && \
     GOPATH=/tmp/gotty go get github.com/yudai/gotty && \
