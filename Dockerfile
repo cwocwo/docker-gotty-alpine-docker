@@ -43,5 +43,8 @@ RUN apk -U upgrade && \
     rm -rf /tmp/gotty /var/cache/apk/* /tmp/src
 
 ADD ./files/timhaak.zsh-theme /root/.oh-my-zsh/themes/timhaak.zsh-theme
+ADD ./files/.aliases /root/.aliases
+
+RUN echo "source /root/.aliases" >> /root/.zshrc
 
 CMD /usr/local/bin/gotty --port 8080 --permit-write --credential user:pass /bin/zsh
