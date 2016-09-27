@@ -5,17 +5,26 @@ ENV LANG="en_US.UTF-8" \
     LC_ALL="en_US.UTF-8" \
     LANGUAGE="en_US.UTF-8" \
     TERM="xterm"
-
+#jq fping haveged htop iftop iotop lsof man mc mtr mysql-client nano netcat nmap postgresql-client rsync screen tmux ssl-cert tar telnet tree vim xz-utils
 RUN apk -U upgrade && \
     apk --update add \
       bash \
       curl \
-      docker  \
+      dnsutils docker  \
+      fping \
       go git \
-      musl-dev \
-      python py2-pip \
+      htop \
+      iftop iotop \
+      jq \
+      man mc mtr musl-dev mysql-client \
+      nano netcat nmap \
+      postgresql-client python py2-pip \
+      rsync \
+      screen \
       wget \
-      tmux \
+      tar telnet tmux tree \
+      vim \
+      xz-utils \
       zsh \
       && \
     GOPATH=/tmp/gotty go get github.com/yudai/gotty && \
