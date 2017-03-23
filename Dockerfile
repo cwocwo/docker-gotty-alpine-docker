@@ -22,7 +22,7 @@ RUN apk -U upgrade && \
       rsync \
       screen \
       wget \
-      tar heimdal-telnet tmux tree \
+      tar tmux tree \
       vim \
       xz \
       zsh \
